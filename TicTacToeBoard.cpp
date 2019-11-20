@@ -8,8 +8,8 @@
 TicTacToeBoard::TicTacToeBoard()
 {
   turn = X;
-  for(int i=0; i<BOARDSIZE; i++)
-    for(int j=0; j<BOARDSIZE; j++)
+  for (int i = 0; i < BOARDSIZE; i++)
+    for (int j = 0; j < BOARDSIZE; j++)
       board[i][j] = Blank;
 }
 
@@ -19,7 +19,7 @@ TicTacToeBoard::TicTacToeBoard()
 **/
 Piece TicTacToeBoard::toggleTurn()
 {
-  return Invalid;
+  return turn == X ? O : X;
 }
 
 /**
@@ -30,7 +30,7 @@ Piece TicTacToeBoard::toggleTurn()
  * Out of bounds coordinates return the Piece Invalid value. When the game
  * is over, no more pieces can be placed so attempting to place a piece
  * should neither change the board nor change whose turn it is.
-**/ 
+**/
 Piece TicTacToeBoard::placePiece(int row, int column)
 {
   return Invalid;
