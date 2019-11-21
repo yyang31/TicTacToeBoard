@@ -69,17 +69,7 @@ Piece TicTacToeBoard::getPiece(int row, int column)
 **/
 Piece TicTacToeBoard::getWinner()
 {
-  // check if the game is still going
-  for (int i = 0; i < BOARDSIZE; i++)
-  {
-    for (int j = 0; j < BOARDSIZE; j++)
-    {
-      if (board[i][j] == Blank)
-        return Invalid;
-    }
-  }
-
-  // check all horzontial win conditions
+  // check all horzontial adn vertiacal win conditions
   for (int i = 0; i < BOARDSIZE; i++)
   {
     // check horzontial win conditions
@@ -93,17 +83,28 @@ Piece TicTacToeBoard::getWinner()
     {
       return board[0][i];
     }
+  }
 
-    // check diagonal win conditions
-    if (board[0][0] == board[1][1] == board[2][2])
+  // check diagonal win conditions
+  if (board[0][0] == board[1][1] == board[2][2])
+  {
+    return board[0][0];
+  }
+  if (board[0][2] == board[1][1] == board[2][0])
+  {
+    return board[0][2];
+  }
+
+  // check if the game is still going
+  for (int i = 0; i < BOARDSIZE; i++)
+  {
+    for (int j = 0; j < BOARDSIZE; j++)
     {
-      return board[0][0];
-    }
-    if (board[0][2] == board[1][1] == board[2][0])
-    {
-      return board[0][2];
+      if (board[i][j] == Blank)
+        return Invalid;
     }
   }
 
+  // no winner
   return Blank;
 }
