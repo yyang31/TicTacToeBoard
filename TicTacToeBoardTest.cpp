@@ -90,6 +90,33 @@ TEST(TicTacToeBoardTest, placePieceOnExsitingLocation21)
 	ASSERT_EQ(board.placePiece(2, 1), O);
 }
 
+TEST(TicTacToeBoardTest, placePieceAfterWinnedGame)
+{
+	TicTacToeBoard board;
+	board.placePiece(0, 2); // X
+	board.placePiece(0, 0); // O
+	board.placePiece(1, 2); // X
+	board.placePiece(1, 1); // O
+	board.placePiece(0, 1); // X
+	board.placePiece(2, 2); // O
+	ASSERT_EQ(board.placePiece(2, 2), O);
+}
+
+TEST(TicTacToeBoardTest, placePieceAfterDraw)
+{
+	TicTacToeBoard board;
+	board.placePiece(0, 0); // X
+	board.placePiece(1, 0); // O
+	board.placePiece(1, 1); // X
+	board.placePiece(2, 2); // O
+	board.placePiece(2, 0); // X
+	board.placePiece(0, 2); // O
+	board.placePiece(1, 2); // X
+	board.placePiece(0, 1); // O
+	board.placePiece(2, 1); // X
+	ASSERT_EQ(board.placePiece(1, 1), X);
+}
+
 TEST(TicTacToeBoardTest, placePieceAt00)
 {
 	TicTacToeBoard board;
