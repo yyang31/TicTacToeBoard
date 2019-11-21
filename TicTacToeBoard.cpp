@@ -82,16 +82,14 @@ Piece TicTacToeBoard::getWinner()
   // check all horzontial win conditions
   for (int i = 0; i < BOARDSIZE; i++)
   {
-    int row = BOARDSIZE * i;
-
     // check horzontial win conditions
-    if (board[i][row + 0] == board[i][row + 1] == board[i][row + 2])
+    if (board[i][0] == board[i][1] == board[i][2])
     {
-      return board[row][row + 0];
+      return board[i][0];
     }
 
     // check vertical win conditions
-    if (board[0][i] == board[1][BOARDSIZE + i] == board[2][BOARDSIZE * 2 + i])
+    if (board[0][i] == board[1][i] == board[2][i])
     {
       return board[0][i];
     }

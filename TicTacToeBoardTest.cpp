@@ -141,7 +141,7 @@ TEST(TicTacToeBoardTest, getPieceAtExisting11)
 {
 	TicTacToeBoard board;
 	board.placePiece(1, 1);
-	ASSERT_EQ(board.getPiece(0, 0), X);
+	ASSERT_EQ(board.getPiece(1, 1), X);
 }
 
 TEST(TicTacToeBoardTest, getPieceAtExisting00)
