@@ -21,6 +21,7 @@ TEST(TicTacToeBoardTest, unitTestName)
 }
 */
 
+// toggleTurn tests
 TEST(TicTacToeBoardTest, toggleTurnOnce)
 {
 	TicTacToeBoard board;
@@ -40,4 +41,50 @@ TEST(TicTacToeBoardTest, toggleTurnThreeTimes)
 	board.toggleTurn();
 	board.toggleTurn();
 	ASSERT_EQ(board.toggleTurn(), O);
+}
+
+// placePiece tests
+TEST(TicTacToeBoardTest, placePieceAt00)
+{
+	TicTacToeBoard board;
+	ASSERT_EQ(board.placePiece(0, 0), X);
+}
+
+TEST(TicTacToeBoardTest, placePieceOutOfBound44)
+{
+	TicTacToeBoard board;
+	ASSERT_EQ(board.placePiece(4, 4), Invalid);
+}
+
+// getPiece tests
+TEST(TicTacToeBoardTest, getPieceAtBlank00)
+{
+	TicTacToeBoard board;
+	board.getPiece(0, 0);
+	ASSERT_EQ(board.toggleTurn(), Blank);
+}
+
+// getWinner tests
+TEST(TicTacToeBoardTest, getWinnerEmptyBoard)
+{
+	TicTacToeBoard board;
+	ASSERT_EQ(board.getWinner(), Invalid);
+}
+
+TEST(TicTacToeBoardTest, getWinnerPartiallyEmptyBoard)
+{
+	TicTacToeBoard board;
+	board.placePiece(0, 0);
+	ASSERT_EQ(board.getWinner(), Invalid);
+}
+
+TEST(TicTacToeBoardTest, getWinnerXHorzontalWin)
+{
+	TicTacToeBoard board;
+	board.placePiece(0, 0); // X
+	board.placePiece(1, 0); // O
+	board.placePiece(0, 1); // X
+	board.placePiece(2, 0); // O
+	board.placePiece(0, 2); // X
+	ASSERT_EQ(board.getWinner(), Invalid);
 }
