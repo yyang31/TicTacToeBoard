@@ -144,10 +144,11 @@ TEST(TicTacToeBoardTest, getPieceAtExisting11)
 	ASSERT_EQ(board.getPiece(0, 0), X);
 }
 
-TEST(TicTacToeBoardTest, getPieceAtExisting11)
+TEST(TicTacToeBoardTest, getPieceAtExisting00)
 {
 	TicTacToeBoard board;
 	board.placePiece(0, 1);
+	board.placePiece(0, 0);
 	board.placePiece(1, 1);
 	ASSERT_EQ(board.getPiece(0, 0), O);
 }
