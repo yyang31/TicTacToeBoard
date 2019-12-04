@@ -229,6 +229,17 @@ TEST(TicTacToeBoardTest, getWinnerODiagonalWin)
 	ASSERT_EQ(board.getWinner(), O);
 }
 
+TEST(TicTacToeBoardTest, getWinnerXDiagonalWin)
+{
+	TicTacToeBoard board;
+	board.placePiece(0, 2); // X
+	board.placePiece(0, 0); // O
+	board.placePiece(1, 1); // X
+	board.placePiece(1, 0); // O
+	board.placePiece(2, 0); // X
+	ASSERT_EQ(board.getWinner(), X);
+}
+
 TEST(TicTacToeBoardTest, getWinnerNoWinner)
 {
 	TicTacToeBoard board;
